@@ -1,0 +1,10 @@
+
+### GET YOUR Account-Group ID
+
+GET https://api.thousandeyes.com/v6/account-groups.json 
+Authorization: Bearer "Your-OAuth-Token-Here"
+
+
+###
+
+GET 
