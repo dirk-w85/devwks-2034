@@ -159,3 +159,68 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
+
+### Planing
+Before you run Terraform to apply the changes to the remote system (i.e, ThousandEyes SaaS platform), you should first use the “terraform plan” command to view what changes will be made and validate that everything looks good with the configuration:
+
+```
+terraform plan
+```
+
+The output of this command will show the actions that Terraform will take based on your Terraform configuration file:
+```
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # thousandeyes_http_server.api_thousandeyes_http_test will be created
+  + resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
+      + alerts_enabled         = false
+      + api_links              = (known after apply)
+      + auth_type              = "NONE"
+      + bandwidth_measurements = false
+      + content_regex          = ".*"
+      + created_by             = (known after apply)
+      + created_date           = (known after apply)
+      + enabled                = true
+      + follow_redirects       = true
+      + groups                 = (known after apply)
+      + http_target_time       = 1000
+      + http_time_limit        = 5
+      + http_version           = 2
+      + id                     = (known after apply)
+      + interval               = 60
+      + live_share             = (known after apply)
+      + modified_by            = (known after apply)
+      + modified_date          = (known after apply)
+      + network_measurements   = true
+      + path_trace_mode        = "classic"
+      + probe_mode             = "AUTO"
+      + protocol               = "TCP"
+      + saved_event            = (known after apply)
+      + ssl_version            = (known after apply)
+      + ssl_version_id         = 0
+      + test_id                = (known after apply)
+      + test_name              = "ThousandEyes API Test - User <#>"
+      + type                   = (known after apply)
+      + url                    = "https://api.thousandeyes.com/status.json"
+      + verify_certificate     = true
+
+      + agents {
+          + agent_id = 61
+        }
+    }
+
+**Plan: 1 to add, 0 to change, 0 to destroy.**
+```
+
+### Apply the changes
+Now that we understand what Terraform will do, let’s apply the plan:
+
+```
+terraform apply
+```
+
+Again, you will see a preview of the actions Terraform will apply, and Terraform will prompt you to confirm to perform these actions. **Be sure to type “yes” at the prompt, and hit your enter key.**
+
