@@ -59,12 +59,12 @@ user32@pseudoco.net
 Navigate to **Account Settings > Users and Roles > Profile > User API Tokens**
 Scroll to the bottom and find “OAuth Bearer Token”. Click the “Create” link to open a modal dialog with your new token. 
 
-[!Important]
-Copy it and save it in a text file on your laptop, you will not be able to view the token later.
+>[!Important]
+>Copy it and save it in a text file on your laptop, you will not be able to view the token later.
 
-[!Tip]
-If, when you click “Create”, the page refreshes without opening the modal dialog containing the token, click the
-“Create” link again. If this still does not create and show a token, please ask for help from the workshop lead.
+>[!Tip]
+>If, when you click “Create”, the page refreshes without opening the modal dialog containing the token, click the
+>“Create” link again. If this still does not create and show a token, please ask for help from the workshop lead.
 
 ### Create a Test Manually
 
