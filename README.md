@@ -95,10 +95,66 @@ The response output should look like this; note the “aid” value.
 ```
 {
     "accountGroups": [{
-        "accountGroupName": "IMPACTFY24-WSDN26", "aid": 1712921,
+        "accountGroupName": "IMPACTFY24-WSDN26", 
+        "aid": 1712921,
         "current": 1,
         "default": 1,
         "organizationName": "IMPACTFY24-WSDN26"
     }] 
 }
+```
+
+Back in your “main.tf” file, add a new block beneath the block you’ve already added:
+```
+provider "thousandeyes" {
+    token = "insert-your-OAuth-bearer-token-here"
+    account_group_id = "1712921"
+ }
+```
+
+### Defining a ThousandEyes test in Terraform code
+Now that we’ve included and configured the ThousandEyes Terraform Provider, let’s define a new ThousandEyes test using Terraform code. Add the following block to your “main.tf” file.
+
+```
+resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
+    test_name = "ThousandEyes API Test - User <#>"
+    interval = 60
+    alerts_enabled = false
+    url = "https://api.thousandeyes.com/status.json"
+    agents {
+        agent_id = 61
+    }
+}```
+
+Make sure to save your “main.tf” file at this point.
+
+### Initializing Terraform
+In your terminal, change your working directory to the DEVWKS-2034 directory:
+```cd ~/Desktop/wsdn26/terraform```
+
+Then, run:
+```terraform init```
+
+You should see the following output:
+```
+Initializing the backend...
+
+Initializing provider plugins...
+- Reusing previous version of thousandeyes/thousandeyes from the dependency lock file
+- Installing thousandeyes/thousandeyes v2.0.8...
+- Installed thousandeyes/thousandeyes v2.0.8 (self-signed, key ID 02BB91CE566497C7)
+
+Partner and community providers are signed by their developers.
+If you'd like to know more about provider signing, you can read about it here:
+https://www.terraform.io/docs/cli/plugins/signing.html
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 ```
