@@ -1,10 +1,11 @@
 
 ### GET YOUR Account-Group ID
 
-GET https://api.thousandeyes.com/v6/account-groups.json 
+GET https://api.thousandeyes.com/v7/account-groups 
 Authorization: Bearer "Your-OAuth-Token-Here"
 
 
-### GET Agent-ID for Amsterdam
+### GET Agent-ID for "Amsterdam, Netherlands" and "San Francisco, CA"
 
-GET 
+GET https://api.thousandeyes.com/v7/agents?agentTypes=cloud 
+Authorization: Bearer "Your-OAuth-Token-Here"

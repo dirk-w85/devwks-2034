@@ -4,6 +4,9 @@ Repo for DEVWKS-2034
 ## Login URL
 https://app.thousandeyes.com/login
 
+## API Documentation
+https://developer.thousandeyes.com/v7
+
 ## Usernames
 
 user11@pseudoco.net
