@@ -56,11 +56,20 @@ user32@pseudoco.net
 
 ### Get an API Key
 
-Navigate to Account Settings > Users and Roles > Profile > User API Tokens
+Navigate to **Account Settings > Users and Roles > Profile > User API Tokens**
+Scroll to the bottom and find “OAuth Bearer Token”. Click the “Create” link to open a modal dialog with your new token. 
+
+[!Important]
+Copy it and save it in a text file on your laptop, you will not be able to view the token later.
+
+[!Tip]
+If, when you click “Create”, the page refreshes without opening the modal dialog containing the token, click the
+“Create” link again. If this still does not create and show a token, please ask for help from the workshop lead.
 
 ### Create a Test Manually
 
-Navigate to Cloud & Enterprise Agents > Test Settings. Click on the Add New Test button.
+Navigate to **Cloud & Enterprise Agents > Test Settings**. Click on the **Add New Test** button.
+
 
 
 ## Section Two: Introduction to Terraform
@@ -366,17 +375,17 @@ resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
 ```
 
 Copy this block and overwrite the empty "identity_pseudoco_net_test" block in your “main.tf” file, and run `terraform plan`. You will see multiple “Value for unconfigurable attribute” errors. This is because the `terraform show` command shows the complete state, including read-only attributes. Our Terraform configuration must not contain any read-only attributes. Remove the following fields from the “identity_pseudoco_net_test” block:
-● api_links
-● created_by
-● created_date 
-● id
-● live_share
-● modified_by
-● modified_date 
-● saved_event 
-● ssl_version
-● test_id
-● type
+- api_links
+- created_by
+- created_date 
+- id
+- live_share
+- modified_by
+- modified_date 
+- saved_event 
+- ssl_version
+- test_id
+- type
 Next, re-run `terraform plan` and validate there are no errors. Now you are able to use Terraform to manage a test that you had initially created manually!
 
 ## Section Four: Adding Variables
@@ -411,9 +420,9 @@ Now, run `terraform plan` to validate that everything is working correctly.
 We’ve now deployed a new web application, and a test that runs from ThousandEyes Cloud Agents towards that new web app. This serves as a representation for how users on the public Internet reach our app.
 However, most applications today are dependent upon third party services and external APIs. Let’s presume that our web application is dependent on the following three APIs:
 
-● api.github.com 
-● api.slack.com 
-● api.twilio.com
+- api.github.com 
+- api.slack.com 
+- api.twilio.com
 
 Because these API requests are made from within our AWS VPC, for the tests we set up against these targets, we want to use the Enterprise Agent we deployed earlier. This Enterprise Agent will represent our web application making third-party API calls to external dependencies across the Internet.
 
