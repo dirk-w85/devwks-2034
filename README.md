@@ -124,7 +124,8 @@ resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
     agents {
         agent_id = 61
     }
-}```
+}
+```
 
 Make sure to save your “main.tf” file at this point.
 
