@@ -3,10 +3,14 @@ Repo for DEVWKS-2034
 
 ## Section One: Intro to ThousandEyes
 ### Login URL
-https://app.thousandeyes.com/login
+US Region: https://app.thousandeyes.com/login?teRegion=0
+EU Region: https://app.thousandeyes.com/login?teRegion=1
 
 ### API Documentation
 https://developer.thousandeyes.com/v7
+
+### Terraform Provider Documentation
+https://registry.terraform.io/providers/thousandeyes/thousandeyes/latest/docs
 
 ### Usernames
 
@@ -70,7 +74,13 @@ Scroll to the bottom and find “OAuth Bearer Token”. Click the “Create” l
 
 Navigate to **Cloud & Enterprise Agents > Test Settings**. Click on the **Add New Test** button.
 
+Create a Page Load test targeting URL **https://identity.pseudoco.net**: 
+- Name the test “identity.pseudoco.net - User <#>”,
+- Set the interval at 1 minute,
+- Select up to 3 Cloud Agents for this test.
+- Lastly, click “**Create New Test**”. 
 
+We’ll let it run for a few test rounds and come back to look at the data.
 
 ## Section Two: Introduction to Terraform
 
