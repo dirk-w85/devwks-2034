@@ -386,6 +386,7 @@ Copy this block and overwrite the empty "identity_pseudoco_net_test" block in yo
 - ssl_version
 - test_id
 - type
+
 Next, re-run `terraform plan` and validate there are no errors. Now you are able to use Terraform to manage a test that you had initially created manually!
 
 ## Section Four: Adding Variables
