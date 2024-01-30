@@ -13,7 +13,7 @@ variable "te_oauth_token" {
 
 provider "thousandeyes" {
     token = var.te_oauth_token      
-    account_group_id = "1712921"
+    account_group_id = "225536"
 }
 
 resource "thousandeyes_http_server" "api_thousandeyes_http_test" { 
