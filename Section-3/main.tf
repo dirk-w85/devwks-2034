@@ -7,12 +7,8 @@ terraform {
     } 
 }
 
-variable "te_oauth_token" {
-   type = string
- }
-
 provider "thousandeyes" {
-    token = var.te_oauth_token      
+    token = "ce0c19fe-71d1-4f2a-8723-2176db039fbf"    
     account_group_id = "225536"
 }
 
