@@ -4,6 +4,7 @@ Repo for DEVWKS-2034
 ## Section One: Intro to ThousandEyes
 ### Login URL
 US Region: https://app.thousandeyes.com/login?teRegion=0
+
 EU Region: https://app.thousandeyes.com/login?teRegion=1
 
 ### API Documentation
