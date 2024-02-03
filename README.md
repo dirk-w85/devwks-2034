@@ -465,7 +465,7 @@ data "thousandeyes_agent" "arg_amsterdam_agent" {
 }
 
 data "thousandeyes_agent" "arg_lasvegas_agent" {
-    agent_name = "Las Vegas, Nevada" 
+    agent_name = "Las Vegas, NV" 
 }
 ```
 
@@ -483,6 +483,10 @@ resource "thousandeyes_http_server" "api_github_http_test" {
     agents {
         agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
     }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
+    }
 }
 ```
 
@@ -492,8 +496,12 @@ resource "thousandeyes_http_server" "api_slack_http_test" {
     interval = 60
     alerts_enabled = false
     url = "https://api.slack.com"
-    agents {        
-        agent_id = data.thousandeyes_agent.arg_amsterdam.agent_id
+    agents {
+        agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
+    }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
     }
 }
 ```
@@ -505,7 +513,11 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
     alerts_enabled = false
     url = "https://api.twilio.com"
     agents {
-        agent_id = data.thousandeyes_agent.arg_amsterdam.agent_id 
+        agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
+    }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
     }
 }
 ```
@@ -513,6 +525,8 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
 ### Plan and Apply
 
 Run `terraform plan` to validate there are no issues in your Terraform code files, then run `terraform apply` to apply the changes and create the three new tests in the ThousandEyes platform.
+
+## Section Six: Modify Existing Tests -  Enable Alerting
 
 
 ## Conclusion

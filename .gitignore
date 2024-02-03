@@ -5,6 +5,9 @@
 *.tfstate
 *.tfstate.*
 
+# Dryrun Fllder
+**/dryrun/*
+
 # Crash log files
 crash.log
 crash.*.log
