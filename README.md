@@ -13,7 +13,7 @@ https://developer.thousandeyes.com/v7
 ### Terraform Provider Documentation
 https://registry.terraform.io/providers/thousandeyes/thousandeyes/latest/docs
 
-### Usernames
+### Usernames (see number on your table)
 
 devwks2034+user01@gmail.com
 
@@ -101,10 +101,16 @@ Create a Page Load test targeting URL **https://identity.pseudoco.net**:
 We’ll let it run for a few test rounds and come back to look at the data.
 
 ## Section Two: Introduction to Terraform
+### Setup the Environment 
+First, open your terminal and create a directory to hold your terraform files and change to that new directory
+```
+mkdir /home/devnet/devwks-2034
+cd /home/devnet/devwks-2024
+```
+In this direcotry, we create a empty file called **main.tf** where will save all our Terrform code. 
 
 ### Configuring the ThousandEyes Terraform Provider
-
-Terraform relies on plugins called "providers" to interact with remote systems. Terraform configurations must declare which providers they require, so that Terraform can install and use them. At the top of the “main.tf” file, add the following block of code - this tells Terraform to use the ThousandEyes Terraform Provider.
+Terraform relies on plugins called "providers" to interact with remote systems. Terraform configurations must declare which providers they require, so that Terraform can install and use them. At the top of the **main.tf** file, add the following block of code - this tells Terraform to use the ThousandEyes Terraform Provider.
 
 ```
 terraform {
@@ -167,9 +173,10 @@ resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
 Make sure to save your “main.tf” file at this point.
 
 ### Initializing Terraform
-In your terminal, change your working directory to the DEVWKS-2034 directory:
+
+In the terminal, change your working directory to the DEVWKS-2034 directory:
 ```
-cd ~/Desktop/devwks-2034/terraform
+cd /home/devnet/devwks-2034
 ```
 
 Then, run:
