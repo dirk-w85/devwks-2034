@@ -583,7 +583,7 @@ Alerting is a crucial piece in ThousandEyes. As a best-practive we enable alerti
 Alerts can be integrated with 3rd party tools like ServiceNow, PagerDuty, Microsoft Teams and Webex. An Webex integration is already configured in this account. 
 Head over to **Integrations > Webex Alert** to check it out. 
 Also, a new Alert Rule was created to use this integration. This can be found unter **Alerts > Alert Rules > DEVWKS-2034 Alert Rule**
-This Alert Rule is set as **default** so any test of type "HTTP Server" will inherit this Alert Rule as soon as alerting gehts enabled on the test. 
+This Alert Rule is set as **default** so any test of type "HTTP Server" will inherit this Alert Rule as soon as alerting gets enabled on the test. 
 
 To enable alerting, change the **alerts_enabled** in every test to **true** :
 
