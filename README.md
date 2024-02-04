@@ -578,6 +578,22 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
 Run `terraform plan` to validate there are no issues in your Terraform code files, then run `terraform apply` to apply the changes and create the three new tests in the ThousandEyes platform.
 
 ## Section Six: Modify Existing Tests -  Enable Alerting
+Alerting is a crucial piece in ThousandEyes. As a best-practive we enable alerting at the end when we are sure tests are working as expected to avoid false-positives and flooding of emails or even tickets. 
+
+Alerts can be integrated with 3rd party tools like ServiceNow, PagerDuty, Microsoft Teams and Webex. An Webex integration is already configured in this account. 
+Head over to **Integrations > Webex Alert** to check it out. 
+Also, a new Alert Rule was created to use this integration. This can be found unter **Alerts > Alert Rules > DEVWKS-2034 Alert Rule**
+This Alert Rule is set as **default** so any test of type "HTTP Server" will inherit this Alert Rule as soon as alerting gehts enabled on the test. 
+
+To enable alerting, change the **alerts_enabled** in every test to **true** :
+
+```
+resource "thousandeyes_http_server" "api_twilio_http_test" { 
+...
+    alerts_enabled = true
+...
+}
+```
 
 
 ## Conclusion
