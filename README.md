@@ -124,7 +124,7 @@ Next, there are two configuration options we need to define:
 We can use the ThousandEyes API to identify our Account Group ID. In your terminal window, run curl against the ThousandEyes API with your OAuth Bearer token.
 
 ```
-curl https://api.thousandeyes.com/v7/account-groups \ -H "Authorization: Bearer Your-OAuth-Token-Here"
+curl https://api.thousandeyes.com/v7/account-groups -H "Authorization: Bearer <Your-OAuth-Token-Here>"
 ```
 
 The response output should look like this; note the “aid” value.
@@ -132,11 +132,11 @@ The response output should look like this; note the “aid” value.
 ```
 {
     "accountGroups": [{
-        "accountGroupName": "IMPACTFY24-WSDN26", 
-        "aid": 1712921,
+        "accountGroupName": "DEVWKS-2034", 
+        "aid": 281474976713688,
         "current": 1,
         "default": 1,
-        "organizationName": "IMPACTFY24-WSDN26"
+        "organizationName": "DEVWKS-2034"
     }] 
 }
 ```
@@ -144,8 +144,8 @@ The response output should look like this; note the “aid” value.
 Back in your “main.tf” file, add a new block beneath the block you’ve already added:
 ```
 provider "thousandeyes" {
-    token = "insert-your-OAuth-bearer-token-here"
-    account_group_id = "1712921"
+    token = "<insert-your-OAuth-bearer-token-here>"
+    account_group_id = "<Your-AID-Here>"
  }
 ```
 
@@ -168,10 +168,14 @@ Make sure to save your “main.tf” file at this point.
 
 ### Initializing Terraform
 In your terminal, change your working directory to the DEVWKS-2034 directory:
-```cd ~/Desktop/wsdn26/terraform```
+```
+cd ~/Desktop/devwks-2034/terraform
+```
 
 Then, run:
-```terraform init```
+```
+terraform init
+```
 
 You should see the following output:
 ```
@@ -259,7 +263,10 @@ Now that we understand what Terraform will do, let’s apply the plan:
 terraform apply
 ```
 
-Again, you will see a preview of the actions Terraform will apply, and Terraform will prompt you to confirm to perform these actions. **Be sure to type “yes” at the prompt, and hit your enter key.**
+Again, you will see a preview of the actions Terraform will apply, and Terraform will prompt you to confirm to perform these actions. 
+
+>[!Important]
+>Be sure to type “yes” at the prompt, and hit your enter key.
 
 ```
 ...
