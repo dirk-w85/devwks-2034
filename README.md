@@ -466,9 +466,6 @@ Be sure to save the file.
 
 ### Define the Value of the Variable
 
-```
-export TF_VAR_te_oauth_token="YOUR-OAUTH-TOKEN"
-```
 Next, create a file to hold the Values for the newly defined Variables:
 
 ```
@@ -488,6 +485,15 @@ te_aid = "<Your-AID-Here>"
 Save the file!
 
 Now, run `terraform plan` to validate that everything is working correctly.
+
+The follwing output is what we expect by now:
+```
+...
+
+No changes. Your infrastructure matches the configuration.
+
+...
+```
 
 
 ## Section Five: Deploy Additional Tests for the Application Backend
