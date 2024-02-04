@@ -151,7 +151,7 @@ The response output should look like this; note the “aid” value.
 }
 ```
 
-Back in your “main.tf” file, add a new block beneath the block you’ve already added:
+Back in your **main.tf** file, add a new block beneath the block you’ve already added:
 ```
 provider "thousandeyes" {
     token = "<insert-your-OAuth-bearer-token-here>"
@@ -160,7 +160,7 @@ provider "thousandeyes" {
 ```
 
 ### Defining a ThousandEyes test in Terraform code
-Now that we’ve included and configured the ThousandEyes Terraform Provider, let’s define a new ThousandEyes test using Terraform code. Add the following block to your “main.tf” file.
+Now that we’ve included and configured the ThousandEyes Terraform Provider, let’s define a new ThousandEyes test using Terraform code. Add the following block to your **main.tf** file.
 
 ```
 resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
@@ -169,16 +169,19 @@ resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
     alerts_enabled = false
     url = "https://api.thousandeyes.com/status.json"
     agents {
-        agent_id = 61
+        agent_id = 7
     }
 }
 ```
+>[!Info]
+> Agent ID #7 is the Cloud Agent in Amsterdam, Netherlands. 
+
 
 Make sure to save your “main.tf” file at this point.
 
 ### Initializing Terraform
 
-In the terminal, change your working directory to the DEVWKS-2034 directory:
+In the terminal, make sure your are working in the correct directory:
 ```
 cd /home/devnet/devwks-2034
 ```
