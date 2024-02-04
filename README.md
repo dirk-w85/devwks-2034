@@ -177,7 +177,7 @@ resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
 > Agent ID #7 is the Cloud Agent in Amsterdam, Netherlands. 
 
 
-Make sure to save your “main.tf” file at this point.
+Make sure to save your **main.tf** file at this point.
 
 ### Initializing Terraform
 
@@ -263,7 +263,7 @@ Terraform will perform the following actions:
       + verify_certificate     = true
 
       + agents {
-          + agent_id = 61
+          + agent_id = 7
         }
     }
 
@@ -449,9 +449,16 @@ variable "te_oauth_token" {
    type = string
  }
 
+variable "te_aid" {
+   type = string
+ }
+```
+
+Change your Provider config to use the new Variables and to look like this:
+```
 provider "thousandeyes" {
    token = var.te_oauth_token
-   account_group_id = "1712921"
+   account_group_id = var.te_aid
 }
 ```
 
@@ -462,6 +469,23 @@ Be sure to save the file.
 ```
 export TF_VAR_te_oauth_token="YOUR-OAUTH-TOKEN"
 ```
+Next, create a file to hold the Values for the newly defined Variables:
+
+```
+touch terraform.tfvars
+```
+
+>[!Important]
+>Do NOT change the filename! Terraform explicitly looks for terraform.tfvars
+
+Use your editor to add the follwoing lines to the Variable file:
+
+```
+te_oauth_token = "<Your-Token-Here>"
+te_aid = "<Your-AID-Here>"
+```
+
+Save the file!
 
 Now, run `terraform plan` to validate that everything is working correctly.
 
