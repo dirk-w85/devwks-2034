@@ -595,9 +595,34 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
 }
 ```
 
+Run `terraform plan` to validate, then run `terraform apply` to apply the changes.
+
+## (optional) Section Seven: Detroy 
+Once you no longer need your tests, you may want to remove them from ThousandEyes to reduce your security exposure and costs. In addition to building and modifying infrastructure, Terraform can destroy or recreate the infrastructure it manages.
+
+The `terraform destroy` command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
+
+Before actually destroying your setup, Terraform will list all elements beeing destroyed. 
+
+Your output should look like this, if all is ok, answer with **yes**:
+```
+...
+Plan: 0 to add, 0 to change, 5 to destroy.
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+..
+```
+
+Head over to the ThousandEyes Platform. Under **Cloud & Enterprise Agents > Tests**, all you tests should have been removed by Terraform. 
+
 
 ## Conclusion
 In this workshop, we used Terraform to define our Infrastructure as Code. Specifically, we used Terraform with the ThousandEyes provider to define our ThousandEyes tests in code. We created “Outside-In” tests, from Cloud Agents to our Website.
 For more information, read the blog post announcing the ThousandEyes Terraform Provider. Complete documentation is available on the Terraform registry. To learn more about how we use Terraform at ThousandEyes, check out Ricard Bejarano’s “Scaling Terraform at ThousandEyes” presentation from SREcon23 Americas.
 You can also learn more about public cloud performance in the ThousandEyes Cloud Performance Report. The Cloud Performance Report analyzes the performance and connectivity architectures of the top three public cloud providers: Amazon Web Services (AWS), Microsoft Azure, and Google Cloud.
+
 Thank you for joining today’s session!
