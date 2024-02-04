@@ -7,13 +7,9 @@ terraform {
     } 
 }
 
-variable "te_oauth_token" {
-   type = string
- }
-
 provider "thousandeyes" {
     token = var.te_oauth_token      
-    account_group_id = "225536"
+    account_group_id = var.te_aid
 }
 
 resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
