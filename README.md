@@ -597,7 +597,7 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
 
 Run `terraform plan` to validate, then run `terraform apply` to apply the changes.
 
-## (optional) Section Seven: Detroy 
+## (optional) Section Seven: Destroy 
 Once you no longer need your tests, you may want to remove them from ThousandEyes to reduce your security exposure and costs. In addition to building and modifying infrastructure, Terraform can destroy or recreate the infrastructure it manages.
 
 The `terraform destroy` command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
