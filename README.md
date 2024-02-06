@@ -620,7 +620,7 @@ Do you really want to destroy all resources?
 ..
 ```
 
-Head over to the ThousandEyes Platform. Under **Cloud & Enterprise Agents > Tests**, all you tests should have been removed by Terraform. 
+Head over to the ThousandEyes Platform. Under **Cloud & Enterprise Agents > Tests**, all your tests should have been removed by Terraform. 
 
 
 ## Conclusion
