@@ -173,7 +173,7 @@ resource "thousandeyes_http_server" "api_thousandeyes_http_test" {
     }
 }
 ```
->[!Info]
+>[!Tip]
 > Agent ID #7 is the Cloud Agent in Amsterdam, Netherlands. 
 
 
