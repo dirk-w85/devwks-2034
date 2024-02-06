@@ -507,7 +507,7 @@ However, most applications today are dependent upon third party services and ext
 Because these API requests are made from within our AWS VPC, for the tests we set up against these targets, we want to use the Enterprise Agent we deployed earlier. This Enterprise Agent will represent our web application making third-party API calls to external dependencies across the Internet.
 
 ### Declare a Cloud Agent as a Data Source
-First, add the Enterprise Agent as a new data object in “main.tf”, immediately after the “provider” block:
+First, add the Enterprise Agent as a new data object in **main.tf**, immediately after the “provider” block:
 
 
 ```
