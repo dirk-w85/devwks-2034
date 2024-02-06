@@ -7,9 +7,27 @@ terraform {
     } 
 }
 
+variable "te_oauth_token" {
+   type = string
+ }
+
+variable "te_aid" {
+   type = string
+ }
+
 provider "thousandeyes" {
-    token = var.te_oauth_token      
-    account_group_id = var.te_aid
+   token = var.te_oauth_token
+   account_group_id = var.te_aid
+}
+
+resource "thousandeyes_http_server" "api_thousandeyes_http_test" { 
+    test_name = "ThousandEyes API Test - User <#>"
+    interval = 60
+    alerts_enabled = false
+    url = "https://api.thousandeyes.com/status.json"
+    agents {
+      agent_id = 7
+    }
 }
 
 resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
@@ -55,15 +73,5 @@ resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
     }
     alert_rules {
         rule_id = 6715563
-    }
-}
-
-resource "thousandeyes_http_server" "api_thousandeyes_http_test" { 
-    test_name = "ThousandEyes API Test - User <#>"
-    interval = 60
-    alerts_enabled = false
-    url = "https://api.thousandeyes.com/status.json"
-    agents {
-      agent_id = 61
     }
 }

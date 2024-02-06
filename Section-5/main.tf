@@ -11,17 +11,31 @@ variable "te_oauth_token" {
    type = string
  }
 
+variable "te_aid" {
+   type = string
+ }
+
+provider "thousandeyes" {
+   token = var.te_oauth_token
+   account_group_id = var.te_aid
+}
+
 data "thousandeyes_agent" "arg_amsterdam_agent" {
     agent_name = "Amsterdam, Netherlands" 
 }
 
 data "thousandeyes_agent" "arg_lasvegas_agent" {
-    agent_name = "Las Vegas, Nevada" 
+    agent_name = "Las Vegas, NV" 
 }
 
-provider "thousandeyes" {
-    token = var.te_oauth_token      
-    account_group_id = "225536"
+resource "thousandeyes_http_server" "api_thousandeyes_http_test" { 
+    test_name = "ThousandEyes API Test - User <#>"
+    interval = 60
+    alerts_enabled = false
+    url = "https://api.thousandeyes.com/status.json"
+    agents {
+      agent_id = 7
+    }
 }
 
 resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
@@ -46,7 +60,7 @@ resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
     probe_mode             = "AUTO"
     protocol               = "TCP"
     ssl_version_id         = 0
-    test_name              = "identity.pseudoco.net - User 999"
+    test_name              = "identity.pseudoco.net - User <#>"
     url                    = "https://identity.pseudoco.net:"
     use_ntlm               = false
     use_public_bgp         = true
@@ -70,42 +84,44 @@ resource "thousandeyes_page_load" "identity_pseudoco_net_test" {
     }
 }
 
-resource "thousandeyes_http_server" "api_thousandeyes_http_test" { 
-    test_name = "ThousandEyes API Test - User <#>"
-    interval = 60
-    alerts_enabled = false
-    url = "https://api.thousandeyes.com/status.json"
-    agents {
-      agent_id = 61
-    }
-}
-
 resource "thousandeyes_http_server" "api_github_http_test" {
-    test_name = "Github API Test - User<#>"
+    test_name = "Github API Test - User <#>"
     interval = 60
     alerts_enabled = false
     url = "https://api.github.com/"
     agents {
         agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
     }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
+    }
 }
 
 resource "thousandeyes_http_server" "api_slack_http_test" { 
-    test_name = "Slack API Test - User<#>"
+    test_name = "Slack API Test - User <#>"
     interval = 60
     alerts_enabled = false
     url = "https://api.slack.com"
-    agents {        
-        agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id
+    agents {
+        agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
+    }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
     }
 }
 
 resource "thousandeyes_http_server" "api_twilio_http_test" { 
-    test_name = "Twilio API Test - User<#>"
+    test_name = "Twilio API Test - User <#>"
     interval = 60
     alerts_enabled = false
     url = "https://api.twilio.com"
     agents {
         agent_id = data.thousandeyes_agent.arg_amsterdam_agent.agent_id 
+    }
+
+    agents {
+        agent_id = data.thousandeyes_agent.arg_lasvegas_agent.agent_id
     }
 }
