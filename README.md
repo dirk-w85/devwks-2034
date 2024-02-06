@@ -442,7 +442,7 @@ Next, re-run `terraform plan` and validate there are no errors. Now you are able
 Recall that when we initially set up “main.tf” with the ThousandEyes provider, we put our OAuth Bearer Token directly in the code. While this is fine for learning and experimenting, it is an anti-pattern to include secrets directly in your code files.
 
 ### Declare the Variable
-Let’s replace the token configuration to use a variable that we will define outside of the code. Open “main.tf”, add a new block to declare the variable, and update the ThousandEyes provider section like so:
+Let’s replace the token configuration to use a variable that we will define outside of the code. Open **main.tf**, add a new block above the provider definition to declare the variable:
 
 ```
 variable "te_oauth_token" {
