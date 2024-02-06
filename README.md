@@ -573,6 +573,9 @@ resource "thousandeyes_http_server" "api_twilio_http_test" {
 }
 ```
 
+>[!Important]
+>Don´t forget to change the Test Name to match your Username. 
+
 ### Plan and Apply
 
 Run `terraform plan` to validate there are no issues in your Terraform code files, then run `terraform apply` to apply the changes and create the three new tests in the ThousandEyes platform.
